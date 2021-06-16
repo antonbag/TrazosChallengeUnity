@@ -40,6 +40,7 @@
      <Compile Include="Assets\Scripts\gotaScript.cs" />
      <Compile Include="Assets\Scripts\imageFromUser.cs" />
      <Compile Include="Assets\Scripts\trazosGM.cs" />
+     <Compile Include="Assets\Scripts\waitForPlayers.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

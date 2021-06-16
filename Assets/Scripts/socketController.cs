@@ -3,13 +3,15 @@ using System.Text;
 using System.Threading;
 using System.Net.WebSockets;
 using UnityEngine;
-
+using Unity.TRAZOS.Game;
 
 public class socketController : MonoBehaviour
 {
-    public string port = "4444";
-    public string url = "localhost";
-    public string cachePath = "http://localhost/online/Node_WS/cache/";
+    trazosGM trazosGM;
+
+    string port,url,cachePath;
+
+
     string address;
      Uri u;
     ClientWebSocket cws = null;
@@ -45,6 +47,15 @@ public class socketController : MonoBehaviour
 
     void Start()
     {
+
+        trazosGM = FindObjectOfType<trazosGM>();
+
+        //data from GMs
+        port = trazosGM.port;
+        url = trazosGM.url;
+        cachePath = trazosGM.cachePath;
+
+
         address = "ws://"+url+":"+port;
         u = new Uri(address);
 

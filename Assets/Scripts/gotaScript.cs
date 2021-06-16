@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using  Unity.TRAZOS.Game;
 public class gotaScript : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -20,7 +21,7 @@ public class gotaScript : MonoBehaviour
     void Start()
     {
 
-        gameObject.transform.Translate(2.0f, 5.0f, 0.0f);
+        gameObject.transform.Translate(0.0f, 5.0f, 0.0f);
 //rb.bodyType = RigidbodyType2D.Static;
 
        

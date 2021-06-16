@@ -1,13 +1,23 @@
+using System;
 using System.Net.Mime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Net;
 
+namespace Unity.TRAZOS.Game{
 public class trazosGM : MonoBehaviour
 {
 
-    public GameObject gota;
+    //[Space]
+    //public GameObject gota;
+    [Space]
+    [Header("=============SERVER=============")]
+    public string port = "4444";
+    public string url = "localhost";
+    public string cachePath = "http://localhost/online/Node_WS/cache/";
+
 
 [Header("=============PLAYER 1=============")]
     public int score1;
@@ -55,14 +65,13 @@ public class trazosGM : MonoBehaviour
         if(player == 1){
             score1 +=1;
             scoreText1.GetComponent<TMPro.TextMeshProUGUI>().text = score1.ToString();
-            //gota.GetComponent<Image>().color = colorPlayer1;
         }
 
         if(player == 2){
             score2 +=1;
             scoreText2.GetComponent<TMPro.TextMeshProUGUI>().text = score2.ToString();
-            //gota.GetComponent<Image>().color = colorPlayer2;
         }
 
     }
+}
 }

@@ -9,16 +9,35 @@ public class imageFromUser : MonoBehaviour
 
     Texture2D playerTexture;
 
-    public string texturaFromServer = "http://localhost/online/linux.png";
+    public string texturaFromServer = "";
+
+    // Tiempo para destruir
+    public float timeToDie = 50.0f;
 
 
-    // Start is called before the first frame update
-    void Awake() {
-    }
+    //*SCALE
+    // cada cuanto se hace pequeño
+    public float scaleEverySeconds = 10.0f;
+    private float currentScaleEverySeconds;
+    private bool mustScale = false;
+
+    // factor de escala
+    public float scaleFactor = 1f;
+
+    // vector de escala
+    private Vector3 scaleChange;
+    private float currentScaleValue;
        
     void Start()
     {
        
+        timeToDie = Random.Range(timeToDie-20f, timeToDie+20f);
+
+        //SCALE
+        currentScaleEverySeconds = scaleEverySeconds;
+        scaleChange = new Vector3(scaleFactor/100, scaleFactor/100, scaleFactor/100);
+        currentScaleValue = 0.9f;
+
         /// * COROUTINE TO GET TEXTURE
         StartCoroutine(GetTexture(texturaFromServer));
      
@@ -63,6 +82,10 @@ public class imageFromUser : MonoBehaviour
         //Modifico el rigibody para que sea dinámico
         gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
 
+
+        //DESTROY OBJECT AFTER random
+        Destroy(gameObject, Random.Range(timeToDie-20f, timeToDie+20f));
+
     }
 
 
@@ -70,10 +93,70 @@ public class imageFromUser : MonoBehaviour
     void Update()
     {   
 
-        //TEST
+        /*//TEST
         if(Time.fixedTime >= 5.0f && Time.fixedTime <= 6.0f){
             gameObject.transform.position = new Vector3(gameObject.transform.position.x,10.0f,0);
-        } 
+        }
+        */
+
+        /////////////
+        //SCALE
+        /////////////
+        currentScaleEverySeconds -= Time.deltaTime;
+        if(currentScaleEverySeconds <= 0){
+            //reset contador
+            //scalo object
+            mustScale = true;
+            currentScaleValue -= 0.1f;
+            currentScaleEverySeconds = scaleEverySeconds;
+        }
+        scaleObject();
+
+
+
+        //DESTROY ON EXIT SCREEN
+        if(gameObject.transform.position.y <= -50){
+            Destroy(gameObject);
+        }
+
+
+
+        //PARECE MÁS ESTABLE PERO MENOS ELEGANTE
+        /*        
+                if(timeToDie > 0){
+                    timeToDie -= Time.deltaTime;
+                    Debug.Log(timeToDie);
+                }else{
+                    Debug.Log("Destroy!!!");
+                    Destroy(gameObject);
+                } 
+
+        */
         
     }
+
+
+    void scaleObject(){
+        
+        //escala cada x
+        if(mustScale && (transform.localScale.x >= currentScaleValue) ){
+            transform.localScale -= scaleChange;
+        }else{
+            currentScaleValue = transform.localScale.x;
+            mustScale=false;
+        }
+
+        //
+        if(transform.localScale.x <= 0.4f){
+            //go to destroy
+            transform.localScale -= scaleChange;
+        }
+
+        if(transform.localScale.x <= 0.01f){
+            //go to destroy
+            Destroy(gameObject);
+        }
+        
+    }
+
 }

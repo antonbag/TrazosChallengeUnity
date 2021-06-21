@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf54ea3d6e36d396fbcd5e6cbb882431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texturaFromServer: 
+  texturaFromServer: http://192.168.1.50/online/Node_WS/cache/player1_1624020924192.jpg
   timeToDie: 200
   scaleEverySeconds: 10
   scaleFactor: 1

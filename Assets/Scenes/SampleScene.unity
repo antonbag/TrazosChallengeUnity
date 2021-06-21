@@ -167,6 +167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trazos: {fileID: 214521063397794124, guid: 6aa5141f5b7a293d9908d8bea4710de6, type: 3}
+  lastTrazoPlayer1: {fileID: 0}
+  lastTrazoPlayer2: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +311,7 @@ RectTransform:
   m_GameObject: {fileID: 788134360}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1355063463}
   m_RootOrder: 0
@@ -901,7 +903,7 @@ RectTransform:
   m_GameObject: {fileID: 1402209720}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1426513154}
   m_RootOrder: 0
@@ -1102,11 +1104,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   port: 4445
-  url: 192.168.1.50
+  url: 84.126.227.189
   cachePath: http://192.168.1.50/online/Node_WS/cache/
   score1: 0
   scoreText1: {fileID: 2139385344}
-  colorPlayer1: {r: 0.016251326, g: 1, b: 0, a: 1}
+  colorPlayer1: {r: 0, g: 0.3603778, b: 1, a: 1}
   goal1: {fileID: 1064242138}
   score2: 0
   scoreText2: {fileID: 1623730209}

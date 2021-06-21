@@ -24,7 +24,7 @@ public class waitForPlayers : MonoBehaviour
     void Start()
     {
  
-        dataToQR = dataToQR+dataToQR+trazosGM.url+":"+trazosGM.port+"&"+gameObject.tag;
+        dataToQR = dataToQR+dataToQR+trazosGM.url+":"+trazosGM.port+";"+gameObject.tag;
        
         Debug.Log(dataToQR);
 
